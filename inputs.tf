@@ -1,6 +1,6 @@
 // ========= Global variables
 variable "client_name" {
-  description = "Client name/account used in naming"
+  description = "Client name/account used in resource naming"
 }
 
 variable "environment" {
@@ -12,11 +12,11 @@ variable "stack" {
 }
 
 variable "resource_group_name" {
-  description = "The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created."
+  description = "The name of the resource group in which the VM has been created."
 }
 
 variable "azure_region" {
-  description = "Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created."
+  description = "Specifies the supported Azure location where the resource exists."
 }
 
 variable "azure_short_region" {
@@ -25,18 +25,23 @@ variable "azure_short_region" {
 
 // ========= VM variables
 variable "vm_name" {
-  description ="Azure VM name to attach the Backup policy"
+  description = "Azure VM name to attach the Backup policy"
 }
 
 variable "vm_id" {
-  description ="Azure VM ID to attach the Backup policy"
+  description = "Azure VM ID to attach the Backup policy"
 }
 
 // ========= Backup variables
 variable "backup_recovery_vault" {
-  description ="Backup recovery vault name"
+  description = "Backup recovery vault name"
 }
 
 variable "backup_policy_name" {
-  description ="Backup policy name to attach"
+  description = "Backup policy name to attach"
+}
+
+variable "delete_backup_data_on_destroy" {
+  description = "Delete all backup data when disabling backup on the targeted VM."
+  default     = true
 }

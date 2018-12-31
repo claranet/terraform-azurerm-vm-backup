@@ -23,7 +23,7 @@ az backup protection disable \
     --vault-name "${var.backup_recovery_vault}" \
     --container-name "${var.vm_name}" \
     --item-name "${var.vm_name}" \
-    --delete-backup-data true \
+    --delete-backup-data "${var.delete_backup_data_on_destroy}" \
     --yes
 CMD
   }
