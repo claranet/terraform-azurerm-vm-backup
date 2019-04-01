@@ -1,30 +1,8 @@
-resource "null_resource" "recovery_vault_backup_enable" {
-  triggers {
-    uuid = "${var.location_short}${var.vm_id}${var.stack}"
-  }
+resource "azurerm_recovery_services_protected_vm" "recovery_vault_backup_enable" {
+  resource_group_name = "${var.resource_group_name}"
+  recovery_vault_name = "${var.backup_recovery_vault_name}"
+  source_vm_id        = "${var.vm_id}"
+  backup_policy_id    = "${var.backup_policy_id}"
 
-  # Based on https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/backup/quick-backup-vm-cli.md
-  provisioner "local-exec" {
-    command = <<CMD
-az backup protection enable-for-vm \
-    --resource-group "${var.resource_group_name}" \
-    --vault-name "${var.backup_recovery_vault_name}" \
-    --vm "${var.vm_id}" \
-    --policy-name "${var.backup_policy_name}"
-CMD
-  }
-
-  provisioner "local-exec" {
-    when = "destroy"
-
-    command = <<CMD
-az backup protection disable \
-    --resource-group "${var.resource_group_name}" \
-    --vault-name "${var.backup_recovery_vault_name}" \
-    --container-name "${var.vm_name}" \
-    --item-name "${var.vm_name}" \
-    --delete-backup-data "${var.delete_backup_data_on_destroy}" \
-    --yes
-CMD
-  }
+  tags = "${var.tags}"
 }

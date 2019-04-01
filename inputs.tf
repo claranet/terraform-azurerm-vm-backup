@@ -24,9 +24,6 @@ variable "location_short" {
 }
 
 // ========= VM variables
-variable "vm_name" {
-  description = "Azure VM name to attach the Backup policy"
-}
 
 variable "vm_id" {
   description = "Azure VM ID to attach the Backup policy"
@@ -37,11 +34,12 @@ variable "backup_recovery_vault_name" {
   description = "Backup recovery vault name"
 }
 
-variable "backup_policy_name" {
-  description = "Backup policy name to attach"
+variable "backup_policy_id" {
+  description = "Backup policy to attach"
 }
 
-variable "delete_backup_data_on_destroy" {
-  description = "Delete all backup data when disabling backup on the targeted VM."
-  default     = true
+variable "tags" {
+  description = "Azure tags to apply. Empty by default."
+  type        = "map"
+  default     = {}
 }
