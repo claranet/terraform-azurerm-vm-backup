@@ -37,9 +37,3 @@ variable "backup_recovery_vault_name" {
 variable "backup_policy_id" {
   description = "Backup policy to attach"
 }
-
-variable "tags" {
-  description = "Azure tags to apply. Empty by default."
-  type        = "map"
-  default     = {}
-}

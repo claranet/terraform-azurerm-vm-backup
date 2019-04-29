@@ -40,20 +40,18 @@ module "vm-001" {
 module "vm-001-backup" {
   source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/vm-backup.git?ref=vX.X.X"
 
-  location    = "${module.az-region.location}"
-  client_name = "${var.client_name}"
-  environment = "${var.environment}"
-  stack       = "${var.stack}"
+  location            = "${module.az-region.location}"
+  location_short      = "${module.az-region.location-short}"
+  resource_group_name = "${module.rg.resource_group_name}"
+  client_name         = "${var.client_name}"
+  environment         = "${var.environment}"
+  stack               = "${var.stack}"
 
   backup_policy_id           = "${module.backup-recovery-vault.backup_policy_id}"
   backup_recovery_vault_name = "${module.backup-recovery-vault.backup_recovery_vault_name}"
 
   vm_id = "${module.vm-001.vm_id}"
 
-  tags = {
-    environment = "${var.environment}"
-    stack       = "${var.stack}"
-  }
 ```
 
 ## Inputs
@@ -68,7 +66,6 @@ module "vm-001-backup" {
 | location_short | Short version of the Azure location, used by naming convention. | string | - | yes |
 | resource_group_name | The name of the resource group in which the VM has been created. | string | - | yes |
 | stack | Project stack name | string | - | yes |
-| tags | Azure tags to apply. Empty by default. | map | `<map>` | no |
 | vm_id | Azure VM ID to attach the Backup policy | string | - | yes |
 
 ## Related documentation
