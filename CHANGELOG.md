@@ -1,3 +1,10 @@
+# 0.2.1 (29/04/2019)
+
+BUGFIXES:
+
+  * AZ-29: Remove buggy `tags` variable
+
+
 # 0.2.0 (01/04/2019)
 
 NOTES:
