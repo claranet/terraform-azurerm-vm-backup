@@ -37,6 +37,12 @@ module "vm-001" {
   [..]
 }
 
+module "vm-002" {
+  source = "..."
+
+  [..]
+}
+
 module "vm-001-backup" {
   source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/vm-backup.git?ref=vX.X.X"
 
@@ -50,7 +56,7 @@ module "vm-001-backup" {
   backup_policy_id           = "${module.backup-recovery-vault.backup_policy_id}"
   backup_recovery_vault_name = "${module.backup-recovery-vault.backup_recovery_vault_name}"
 
-  vm_id = "${module.vm-001.vm_id}"
+  vm_ids = ["${module.vm-001.vm_id}", "${module.vm-002_id}"]
 
 ```
 
@@ -66,7 +72,7 @@ module "vm-001-backup" {
 | location_short | Short version of the Azure location, used by naming convention. | string | - | yes |
 | resource_group_name | The name of the resource group in which the VM has been created. | string | - | yes |
 | stack | Project stack name | string | - | yes |
-| vm_id | Azure VM ID to attach the Backup policy | string | - | yes |
+| vm_ids | List of Azure VM ID to attach to the Backup policy | list | - | yes |
 
 ## Related documentation
 

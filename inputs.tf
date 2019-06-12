@@ -25,8 +25,9 @@ variable "location_short" {
 
 // ========= VM variables
 
-variable "vm_id" {
-  description = "Azure VM ID to attach the Backup policy"
+variable "vm_ids" {
+  description = "List of Azure VM ID to attach to the Backup policy"
+  type        = "list"
 }
 
 // ========= Backup variables
