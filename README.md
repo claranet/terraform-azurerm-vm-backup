@@ -43,7 +43,7 @@ module "vm-002" {
   [..]
 }
 
-module "vm-001-backup" {
+module "vm-backup" {
   source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/vm-backup.git?ref=vX.X.X"
 
   location            = "${module.az-region.location}"
@@ -56,7 +56,7 @@ module "vm-001-backup" {
   backup_policy_id           = "${module.backup-recovery-vault.backup_policy_id}"
   backup_recovery_vault_name = "${module.backup-recovery-vault.backup_recovery_vault_name}"
 
-  vm_ids = ["${module.vm-001.vm_id}", "${module.vm-002_id}"]
+  vm_ids = ["${module.vm-001.vm_id}", "${module.vm-002.vm_id}"]
 
 ```
 

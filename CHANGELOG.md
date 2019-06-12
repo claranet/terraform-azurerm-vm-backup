@@ -1,3 +1,9 @@
+# 0.2.2 (12/06/2019)
+
+IMPROVEMENT:
+
+  * AZ-29: Change type for `vm_id` to list
+
 # 0.2.1 (29/04/2019)
 
 BUGFIXES:
