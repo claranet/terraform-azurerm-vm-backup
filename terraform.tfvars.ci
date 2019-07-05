@@ -6,8 +6,8 @@ stack="ci"
 
 resource_group_name="rg-test"
 
-vm_name="vm-test-euwest"
-vm_id="/subscriptions/000bbbbb-dddd-dddd-dddd-abcdefghijk/resourceGroups/rg-test/providers/Microsoft.Compute/virtualMachines/vm-001"
+vm_count="1"
+vm_ids=["/subscriptions/000bbbbb-dddd-dddd-dddd-abcdefghijk/resourceGroups/rg-test/providers/Microsoft.Compute/virtualMachines/vm-001"]
 
 backup_recovery_vault_name="vault-test"
 backup_policy_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1"
