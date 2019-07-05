@@ -56,23 +56,24 @@ module "vm-backup" {
   backup_policy_id           = "${module.backup-recovery-vault.backup_policy_id}"
   backup_recovery_vault_name = "${module.backup-recovery-vault.backup_recovery_vault_name}"
 
-  vm_ids = ["${module.vm-001.vm_id}", "${module.vm-002.vm_id}"]
+  vm_count = "2"
+  vm_ids   = ["${module.vm-001.vm_id}", "${module.vm-002.vm_id}"]
 
 ```
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| backup_policy_id | Backup policy to attach | string | - | yes |
-| backup_recovery_vault_name | Backup recovery vault name | string | - | yes |
-| client_name | Client name/account used in resource naming | string | - | yes |
-| environment | Project environment | string | - | yes |
-| location | Specifies the supported Azure location where the resource exists. | string | - | yes |
-| location_short | Short version of the Azure location, used by naming convention. | string | - | yes |
-| resource_group_name | The name of the resource group in which the VM has been created. | string | - | yes |
-| stack | Project stack name | string | - | yes |
-| vm_ids | List of Azure VM ID to attach to the Backup policy | list | - | yes |
+| backup\_policy\_id | Backup policy to attach | string | n/a | yes |
+| backup\_recovery\_vault\_name | Backup recovery vault name | string | n/a | yes |
+| client\_name | Client name/account used in resource naming | string | n/a | yes |
+| environment | Project environment | string | n/a | yes |
+| location | Specifies the supported Azure location where the resource exists. | string | n/a | yes |
+| location\_short | Short version of the Azure location, used by naming convention. | string | n/a | yes |
+| resource\_group\_name | The name of the resource group in which the VM has been created. | string | n/a | yes |
+| stack | Project stack name | string | n/a | yes |
+| vm\_count | Number of vm for attaching the Backup policy | string | n/a | yes |
+| vm\_ids | List of Azure VM ID to attach to the Backup policy | list | n/a | yes |
 
 ## Related documentation
 

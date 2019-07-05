@@ -30,6 +30,10 @@ variable "vm_ids" {
   type        = "list"
 }
 
+variable "vm_count" {
+  description = "Number of vm for attaching the Backup policy"
+}
+
 // ========= Backup variables
 variable "backup_recovery_vault_name" {
   description = "Backup recovery vault name"
