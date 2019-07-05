@@ -31,7 +31,7 @@ variable "vm_ids" {
 }
 
 variable "vm_count" {
-  description = "Number of vm for attaching the Backup policy"
+  description = "Number of Azure vm to attach to the Backup policy"
 }
 
 // ========= Backup variables
