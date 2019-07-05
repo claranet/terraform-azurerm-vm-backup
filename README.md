@@ -58,6 +58,7 @@ module "vm-backup" {
 
   vm_count = "2"
   vm_ids   = ["${module.vm-001.vm_id}", "${module.vm-002.vm_id}"]
+}
 
 ```
 ## Inputs
