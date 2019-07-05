@@ -6,6 +6,7 @@ stack="ci"
 
 resource_group_name="rg-test"
 
+vm_count="1"
 vm_name="vm-test-euwest"
 vm_ids=["/subscriptions/000bbbbb-dddd-dddd-dddd-abcdefghijk/resourceGroups/rg-test/providers/Microsoft.Compute/virtualMachines/vm-001"]
 
