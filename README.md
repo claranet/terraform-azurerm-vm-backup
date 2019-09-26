@@ -4,8 +4,14 @@ This terraform module enable VM backup protection on the specified instance.
 
 ## Requirements
 
-- Terraform ~> v0.11
-- Terraform Azure provider ~> v1.18
+* [AzureRM Terraform provider](https://www.terraform.io/docs/providers/azurerm/) >= 1.32
+
+## Terraform version compatibility
+ 
+| Module version | Terraform version |
+|----------------|-------------------|
+| >= 2.x.x       | 0.12.x            |
+| < 2.x.x        | 0.11.x            |
 
 ## Usage
 
