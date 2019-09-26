@@ -15,20 +15,20 @@ This terraform module enable VM backup protection on the specified instance.
 
 ## Usage
 
-```shell
-module "az-region" {
+```hcl
+module "azure-region" {
   source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/regions.git?ref=vX.X.X"
 
-  azure_region = "${var.azure_region}"
+  azure_region = var.azure_region
 }
 
 module "rg" {
   source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/rg.git?ref=vX.X.X"
 
-  location    = "${module.az-region.location}"
-  client_name = "${var.client_name}"
-  environment = "${var.environment}"
-  stack       = "${var.stack}"
+  location    = module.azure-region.location
+  client_name = var.client_name
+  environment = var.environment
+  stack       = var.stack
 }
 
 module "backup-recovery-vault" {
@@ -52,18 +52,18 @@ module "vm-002" {
 module "vm-backup" {
   source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/vm-backup.git?ref=vX.X.X"
 
-  location            = "${module.az-region.location}"
-  location_short      = "${module.az-region.location-short}"
-  resource_group_name = "${module.rg.resource_group_name}"
-  client_name         = "${var.client_name}"
-  environment         = "${var.environment}"
-  stack               = "${var.stack}"
+  location            = module.az-region.location
+  location_short      = module.az-region.location-short
+  resource_group_name = module.rg.resource_group_name
+  client_name         = var.client_name
+  environment         = var.environment
+  stack               = var.stack
 
-  backup_policy_id           = "${module.backup-recovery-vault.backup_policy_id}"
-  backup_recovery_vault_name = "${module.backup-recovery-vault.backup_recovery_vault_name}"
+  backup_policy_id           = module.backup-recovery-vault.backup_policy_id
+  backup_recovery_vault_name = module.backup-recovery-vault.backup_recovery_vault_name
 
   vm_count = "2"
-  vm_ids   = ["${module.vm-001.vm_id}", "${module.vm-002.vm_id}"]
+  vm_ids   = [module.vm-001.vm_id, module.vm-002.vm_id]
 }
 
 ```
@@ -80,7 +80,7 @@ module "vm-backup" {
 | resource\_group\_name | The name of the resource group in which the VM has been created. | string | n/a | yes |
 | stack | Project stack name | string | n/a | yes |
 | vm\_count | Number of vm for attaching the Backup policy | string | n/a | yes |
-| vm\_ids | List of Azure VM ID to attach to the Backup policy | list | n/a | yes |
+| vm\_ids | List of Azure VM ID to attach to the Backup policy | list(string) | n/a | yes |
 
 ## Related documentation
 
