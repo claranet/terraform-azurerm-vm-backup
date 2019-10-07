@@ -1,4 +1,3 @@
-// ========= Global variables
 variable "client_name" {
   description = "Client name/account used in resource naming"
 }
@@ -23,18 +22,15 @@ variable "location_short" {
   description = "Short version of the Azure location, used by naming convention."
 }
 
-// ========= VM variables
-
 variable "vm_ids" {
   description = "List of Azure VM ID to attach to the Backup policy"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "vm_count" {
   description = "Number of Azure vm to attach to the Backup policy"
 }
 
-// ========= Backup variables
 variable "backup_recovery_vault_name" {
   description = "Backup recovery vault name"
 }
