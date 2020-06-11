@@ -1,4 +1,4 @@
-resource "azurerm_recovery_services_protected_vm" "recovery_vault_backup_enable" {
+resource "azurerm_backup_protected_vm" "recovery_vault_backup_enable" {
   count = var.vm_count
 
   resource_group_name = var.resource_group_name
