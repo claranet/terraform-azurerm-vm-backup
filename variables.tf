@@ -1,25 +1,31 @@
-variable "client_name" {
-  description = "Client name/account used in resource naming"
+variable "resource_group_name" {
+  description = "Name of the resource group"
+  type        = string
+}
+
+variable "location" {
+  description = "Azure region to use"
+  type        = string
+}
+
+variable "location_short" {
+  description = "Short string for Azure location"
+  type        = string
 }
 
 variable "environment" {
   description = "Project environment"
+  type        = string
 }
 
 variable "stack" {
   description = "Project stack name"
+  type        = string
 }
 
-variable "resource_group_name" {
-  description = "The name of the resource group in which the VM has been created."
-}
-
-variable "location" {
-  description = "Specifies the supported Azure location where the resource exists."
-}
-
-variable "location_short" {
-  description = "Short version of the Azure location, used by naming convention."
+variable "client_name" {
+  description = "Client name/account used in naming"
+  type        = string
 }
 
 variable "vm_ids" {
@@ -29,12 +35,15 @@ variable "vm_ids" {
 
 variable "vm_count" {
   description = "Number of Azure vm to attach to the Backup policy"
+  type        = number
 }
 
 variable "backup_recovery_vault_name" {
   description = "Backup recovery vault name"
+  type        = string
 }
 
 variable "backup_policy_id" {
   description = "Backup policy to attach"
+  type        = string
 }

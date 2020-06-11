@@ -3,16 +3,13 @@
 
 This terraform module enable VM backup protection on the specified instance.
 
-## Requirements
+## Version compatibility
 
-* [AzureRM Terraform provider](https://www.terraform.io/docs/providers/azurerm/) >= 1.32
-
-## Terraform version compatibility
- 
-| Module version | Terraform version |
-|----------------|-------------------|
-| >= 2.x.x       | 0.12.x            |
-| < 2.x.x        | 0.11.x            |
+| Module version    | Terraform version | AzureRM version |
+|-------------------|-------------------|-----------------|
+| >= 3.x.x          | 0.12.x            | >= 2.0          |
+| >= 2.x.x, < 3.x.x | 0.12.x            | <  2.0          |
+| <  2.x.x          | 0.11.x            | <  2.0          |
 
 ## Usage
 
@@ -79,20 +76,20 @@ module "vm-backup" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| backup\_policy\_id | Backup policy to attach | string | n/a | yes |
-| backup\_recovery\_vault\_name | Backup recovery vault name | string | n/a | yes |
-| client\_name | Client name/account used in resource naming | string | n/a | yes |
-| environment | Project environment | string | n/a | yes |
-| location | Specifies the supported Azure location where the resource exists. | string | n/a | yes |
-| location\_short | Short version of the Azure location, used by naming convention. | string | n/a | yes |
-| resource\_group\_name | The name of the resource group in which the VM has been created. | string | n/a | yes |
-| stack | Project stack name | string | n/a | yes |
-| vm\_count | Number of vm for attaching the Backup policy | string | n/a | yes |
-| vm\_ids | List of Azure VM ID to attach to the Backup policy | list(string) | n/a | yes |
+|------|-------------|------|---------|:--------:|
+| backup\_policy\_id | Backup policy to attach | `string` | n/a | yes |
+| backup\_recovery\_vault\_name | Backup recovery vault name | `string` | n/a | yes |
+| client\_name | Client name/account used in naming | `string` | n/a | yes |
+| environment | Project environment | `string` | n/a | yes |
+| location | Azure region to use | `string` | n/a | yes |
+| location\_short | Short string for Azure location | `string` | n/a | yes |
+| resource\_group\_name | Name of the resource group | `string` | n/a | yes |
+| stack | Project stack name | `string` | n/a | yes |
+| vm\_count | Number of Azure vm to attach to the Backup policy | `number` | n/a | yes |
+| vm\_ids | List of Azure VM ID to attach to the Backup policy | `list(string)` | n/a | yes |
 
 ## Related documentation
 
 ~~[Enable backup protection via Azure CLI](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/backup/quick-backup-vm-cli.md)~~
 
-[Enable backup protection via Terraform](https://www.terraform.io/docs/providers/azurerm/r/recovery_services_protection_policy_vm.html)
+Enable backup protection via Terraform: [terraform.io/docs/providers/azurerm/r/recovery_services_protection_policy_vm.html](https://www.terraform.io/docs/providers/azurerm/r/recovery_services_protection_policy_vm.html)
