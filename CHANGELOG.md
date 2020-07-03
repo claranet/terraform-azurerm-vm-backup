@@ -1,4 +1,4 @@
-# v2.0.1 - Unreleased
+# v2.0.1 - 2020-07-03
 
 Changed
   * AZ-206: Pin version AzureRM under 2.0 to be usable + add variables types
