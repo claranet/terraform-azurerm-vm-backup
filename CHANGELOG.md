@@ -1,4 +1,4 @@
-# v3.0.0 - Unreleased
+# v3.0.0 - 2020-07-03
 
 Breaking
   * AZ-198: Upgrade resources to be compatible with AzureRM 2.0
