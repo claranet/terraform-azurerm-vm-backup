@@ -88,6 +88,10 @@ module "vm-backup" {
 | vm\_count | Number of Azure vm to attach to the Backup policy | `number` | n/a | yes |
 | vm\_ids | List of Azure VM ID to attach to the Backup policy | `list(string)` | n/a | yes |
 
+## Outputs
+
+No output.
+
 ## Related documentation
 
 ~~[Enable backup protection via Azure CLI](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/backup/quick-backup-vm-cli.md)~~
