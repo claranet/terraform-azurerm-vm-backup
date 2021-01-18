@@ -42,13 +42,7 @@ module "backup-recovery-vault" {
   [..]
 }
 
-module "vm-001" {
-  source = "..."
-
-  [..]
-}
-
-module "vm-002" {
+module "linux-vm" {
   source = "..."
 
   [..]
@@ -68,10 +62,8 @@ module "vm-backup" {
   backup_policy_id           = module.backup-recovery-vault.backup_policy_id
   backup_recovery_vault_name = module.backup-recovery-vault.backup_recovery_vault_name
 
-  vm_count = "2"
-  vm_ids   = [module.vm-001.vm_id, module.vm-002.vm_id]
+  vm_id = module.linux-vm.vm_id
 }
-
 ```
 
 ## Inputs
@@ -86,8 +78,7 @@ module "vm-backup" {
 | location\_short | Short string for Azure location | `string` | n/a | yes |
 | resource\_group\_name | Name of the resource group | `string` | n/a | yes |
 | stack | Project stack name | `string` | n/a | yes |
-| vm\_count | Number of Azure vm to attach to the Backup policy | `number` | n/a | yes |
-| vm\_ids | List of Azure VM ID to attach to the Backup policy | `list(string)` | n/a | yes |
+| vm\_id | Azure VM ID to attach to the Backup policy | `string` | n/a | yes |
 
 ## Outputs
 

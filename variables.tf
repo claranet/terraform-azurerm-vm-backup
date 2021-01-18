@@ -28,14 +28,9 @@ variable "client_name" {
   type        = string
 }
 
-variable "vm_ids" {
-  description = "List of Azure VM ID to attach to the Backup policy"
-  type        = list(string)
-}
-
-variable "vm_count" {
-  description = "Number of Azure vm to attach to the Backup policy"
-  type        = number
+variable "vm_id" {
+  description = "Azure VM ID to attach to the Backup policy"
+  type        = string
 }
 
 variable "backup_recovery_vault_name" {
