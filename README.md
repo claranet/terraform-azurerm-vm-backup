@@ -90,12 +90,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | backup\_policy\_id | Backup policy to attach | `string` | n/a | yes |
 | backup\_recovery\_vault\_name | Backup recovery vault name | `string` | n/a | yes |
-| client\_name | Client name/account used in naming | `string` | n/a | yes |
-| environment | Project environment | `string` | n/a | yes |
-| location | Azure region to use | `string` | n/a | yes |
-| location\_short | Short string for Azure location | `string` | n/a | yes |
 | resource\_group\_name | Name of the resource group | `string` | n/a | yes |
-| stack | Project stack name | `string` | n/a | yes |
 | vm\_id | Azure VM ID to attach to the Backup policy | `string` | n/a | yes |
 
 ## Outputs
