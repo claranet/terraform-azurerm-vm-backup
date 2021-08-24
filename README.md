@@ -6,7 +6,8 @@ This terraform module enable VM backup protection on the specified instance.
 ## Version compatibility
 
 | Module version | Terraform version | AzureRM version |
-|----------------|-------------------| --------------- |
+| -------------- | ----------------- | --------------- |
+| >= 5.x.x       | 0.15.x & 1.0.x    | >= 2.0          |
 | >= 4.x.x       | 0.13.x            | >= 2.0          |
 | >= 3.x.x       | 0.12.x            | >= 2.0          |
 | >= 2.x.x       | 0.12.x            | < 2.0           |
@@ -66,6 +67,23 @@ module "vm-backup" {
 }
 ```
 
+<!-- BEGIN_TF_DOCS -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurerm | >= 2.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_backup_protected_vm.recovery_vault_backup_enable](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/backup_protected_vm) | resource |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -82,8 +100,8 @@ module "vm-backup" {
 
 ## Outputs
 
-No output.
-
+No outputs.
+<!-- END_TF_DOCS -->
 ## Related documentation
 
 ~~[Enable backup protection via Azure CLI](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/backup/quick-backup-vm-cli.md)~~
