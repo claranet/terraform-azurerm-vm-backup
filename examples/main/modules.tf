@@ -39,6 +39,11 @@ module "az_vm_backup" {
   stack          = var.stack
 
   resource_group_name = module.rg.resource_group_name
+
+  logs_destinations_ids = [
+    module.logs.logs_storage_account_id,
+    module.logs.log_analytics_workspace_id
+  ]
 }
 
 module "azure_network_vnet" {

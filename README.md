@@ -4,7 +4,7 @@
 This terraform module enable VM backup protection on the specified instance.
 
 <!-- BEGIN_TF_DOCS -->
-## Global versionning rule for Claranet Azure modules
+## Global versioning rule for Claranet Azure modules
 
 | Module version | Terraform version | AzureRM version |
 | -------------- | ----------------- | --------------- |
@@ -62,6 +62,11 @@ module "az_vm_backup" {
   stack          = var.stack
 
   resource_group_name = module.rg.resource_group_name
+
+  logs_destinations_ids = [
+    module.logs.logs_storage_account_id,
+    module.logs.log_analytics_workspace_id
+  ]
 }
 
 module "azure_network_vnet" {
