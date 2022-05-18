@@ -1,4 +1,4 @@
-# Unreleased
+# v5.0.0 - 2022-05-18
 
 Changed
   * AZ-572: Revamp examples and improve CI
