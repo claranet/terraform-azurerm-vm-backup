@@ -3,6 +3,9 @@
 Changed
   * AZ-572: Revamp examples and improve CI
 
+Updated
+  * AZ-717: Also compatible with AzureRM provider `v3+` and Terraform `v1.1+`
+
 # v4.0.1 - 2021-08-27
 
 Updated
